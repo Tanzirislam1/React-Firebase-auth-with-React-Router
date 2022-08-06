@@ -1,4 +1,5 @@
 /* steps of website building
+
 1. install react router and set routes on app.js...
 
 2. create components for routes and set navbar custom-active-link use border bottom the route useing from stackclitz....
@@ -19,9 +20,34 @@ if(usersData.length){
 
 * firebase login setup
 
-8. toggle check box on login route : optionally chaing 1 from contents depend in checkbox input field and set onChange and set login state (!login) reuse login state for toggle login or register cause the state normally set false when we change checkbox field register and login are toggleing... 
+8. toggle check box on login route : optionally chaing 1 from contents depend in checkbox input field and set onChange and set login state (!login) reuse login state for toggle login or register cause the state normally set false when we change checkbox field register and login are toggleing...
 
+9. firebase authentication enable for email and password if you need another then enable it!...
 
+10. create required-auth-component and copy stackblitz code and rap the route in required-auth component for protected route....
 
+11. useing react-firebase-hooks for create user and login system 
+
+12. access input field target value useings state :  amra aikhane akta state declair korse state er vitor kicu object diclair korse empty string hisabe ai state er [event.target.name] = event.target.value set kortase normally empty string thakbe jokhon amra kicu likhbo tokhon oi object property ta k return korbe amra oi property er moddhe ja likhse...amra handleFormInput er moddhe state tah set korse and proti ta input er moddhe onBlur kortase ai onBlur er moddhe arrow function niye ter perameter e event k call kortase and handler function k call kore ter moddhe o event k set kortase...amra userinfo state k console korle dekhte parbo amra input field gulo tae ja likhbo oi field gulo k akta oject akaree return kortase and amra object theke oi property gulo k access korte pari... 
+example ->
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        password: '',
+        confirmPass: ''
+    })
+
+13. from onSubmit handler setup in form onBlur and event.preventDefault() 
+
+14. redirected login route : Example =>
+* redirected 
+let navigate = useNavigate();
+let location = useLocation();
+
+let from = location.state?.from?.pathname || "/";
+if (loginUser) {
+    navigate(from, { replace: true });
+}
+
+15. toggle navbar login : jodi user login kore tahole signout dekhabe er jodi login nh kora thake tahole login dekhabe....amra signout er kaj tao korse jokhon signout e click korbo tokhon signout hoye jabe....
 
 */

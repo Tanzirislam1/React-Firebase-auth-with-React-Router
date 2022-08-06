@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import CustomLink from '../../CustomLink/CustomLink';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    console.log(user?.email);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
@@ -25,6 +29,12 @@ const Navbar = () => {
                     <div>
                         <CustomLink to="/login">Login</CustomLink>
                     </div>
+                    <span>
+                        {
+                            /* user nh thake USER ai text ta show korbe er jodi user thake tahole amader email ta show korbe */
+                            !user ? '' : <span>{user.email} <button onClick={() => signOut(auth)}>Signout</button></span>
+                        }
+                    </span>
                 </div>
             </div>
         </nav>
